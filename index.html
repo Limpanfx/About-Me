@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Limpan</title>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: #0f1724;
+      --accent: #ff66cc;
+      --accent2: #66d9ff;
+      --muted: #9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+      --card-width: auto;
+      --card-height: auto;
+      --card-border: 1px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body {height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071026);color:#e6eef8}
+    .wrap {max-width:1100px;margin:32px auto;padding:28px}
+
+    h1 {margin:0;font-size:28px;letter-spacing:0.5px}
+    .subtitle {color:var(--muted);margin-top:6px;font-size:13px}
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 8px 30px rgba(3,6,12,0.6);
+      backdrop-filter: blur(6px);
+      border: var(--card-border) solid rgba(255,255,255,0.03);
+      width: var(--card-width);
+      min-height: var(--card-height);
+    }
+
+    .bio {font-size:15px;line-height:1.45}
+    footer {margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+
+    .confetti {position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+    .confetti i {position:absolute;width:12px;height:16px;opacity:0.95;transform-origin:center;animation:fall 4s linear infinite}
+    @keyframes fall {0%{transform:translateY(-10vh) rotate(0) scale(1)}100%{transform:translateY(110vh) rotate(540deg) scale(0.9)}}
+
+    .glow {position:relative}
+    .glow:after {content:"";position:absolute;inset:-2px;background:linear-gradient(90deg, rgba(255,102,204,0.08), rgba(102,217,255,0.06));filter:blur(18px);opacity:0.9;border-radius:16px;z-index:-1}
+
+    @media (max-width:880px) {.grid{grid-template-columns:1fr}}
+
+    .btn {
+      display:inline-block;padding:10px 14px;border-radius:14px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04202a;font-weight:800;text-decoration:none;border:2px solid rgba(255,255,255,0.12);box-shadow:0 6px 18px rgba(102,217,255,0.06)
+    }
+
+    .sparkle {display:inline-block;margin-left:8px;transform:translateY(-1px)}
+    .socials {display:flex;flex-direction:column;gap:10px}
+    .social {
+      display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);text-decoration:none;color:inherit;border:1px solid rgba(255,255,255,0.02)
+    }
+    .social span {font-weight:700}
+    .social .handle {color:var(--muted);font-size:13px}
+
+    .projects {margin-top:14px}
+    .project {
+      display:flex;flex-direction:column;justify-content:flex-start;margin-bottom:12px;padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent)
+    }
+    .project h4 {margin:0 0 4px;font-size:16px}
+    .project p {margin:0;color:var(--muted);font-size:14px}
+
+    .good-luck-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .good-luck-btn {
+      padding: 12px 20px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #04202a;
+      font-weight: 800;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.12);
+      box-shadow: 0 6px 18px rgba(102,217,255,0.06);
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+    .good-luck-btn:hover { transform: translateY(-2px); }
+    .good-luck-counter { margin-top: 10px; font-size: 18px; color: var(--accent2); }
+
+    .right { display: flex; flex-direction: column; gap: 20px; }
+
+    .contact { --card-height: 140px; }
+  </style>
+</head>
+<body>
+  <div class="confetti" aria-hidden="true">
+    <i style="left:8%; top:-6%; background:#ff66cc;border-radius:4px;animation-delay:0s"></i>
+    <i style="left:22%; top:-8%; background:#66d9ff;border-radius:50%;width:10px;height:10px;animation-delay:.3s"></i>
+    <i style="left:40%; top:-10%; background:#ffd166;animation-delay:.6s"></i>
+    <i style="left:58%; top:-9%; background:#bde0fe;animation-delay:.2s"></i>
+    <i style="left:75%; top:-7%; background:#caffbf;border-radius:6px;animation-delay:.5s"></i>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      <main>
+        <section class="card bio" style="--card-height:150px; --card-width:100%;">
+          <h3 class="glow">About Me</h3>
+          <p>Yo, I'm <strong>Limpan</strong>, an 18 year old swedish boy who lives in Stockholm.</p>
+        </section>
+
+        <section class="card projects" style="--card-height:250px; --card-width:100%;">
+          <h3 class="glow">Anime Card Clash Websites</h3>
+          <div class="project"><h4><a href="https://limpanfx.github.io/sky-king-calculator" target="_blank">Sky King Drums Calculator</a></h4></div>
+          <div class="project"><h4><a href="https://limpanfx.github.io/Boss-Efficiency-Calculator" target="_blank">Raid Boss Coin Calculator</a></h4></div>
+          <div class="project"><h4><a href="https://limpanfx.github.io/Trait-Spin-Calculator" target="_blank">Trait Reroll Estimator</a></h4></div>
+        </section>
+
+        <section class="card good-luck-container" id="goodLuckCard" style="--card-height:140px; --card-width:100%;">
+          <button class="good-luck-btn" id="goodLuckBtn">Click for Good Luck!</button>
+          <div class="good-luck-counter" id="luckCounter">Good Luck Count: 0</div>
+        </section>
+      </main>
+
+      <aside class="right">
+        <div class="card my-links" style="--card-height:200px; --card-width:100%;">
+          <h3>My Links</h3>
+          <div class="socials" style="margin-top:10px">
+            <a class="social" href="https://guns.lol/Limpan" target="_blank" rel="noreferrer"><div>🔗</div><div><span>Guns.lol</span><div class="handle">Limpan</div></div></a>
+            <a class="social" href="https://www.youtube.com/@Limpanshub" target="_blank" rel="noreferrer"><div>▶️</div><div><span>YouTube</span><div class="handle">Limpan</div></div></a>
+            <a class="social" href="https://discord.gg/YXMMVyKMsq" target="_blank" rel="noreferrer"><div>💬</div><div><span>Discord</span><div class="handle">Limpan's ACC deck stock</div></div></a>
+            <a class="social" href="https://www.roblox.com/users/2969207300/profile" target="_blank" rel="noreferrer"><div>🕹️</div><div><span>Roblox</span><div class="handle">Limpan_byeok</div></div></a>
+          </div>
+        </div>
+
+        <div class="card contact" style="--card-width:100%; text-align:center;">
+          <h3 id="contact">Contact</h3>
+          <p style="color:var(--muted)">Want to reach out? DM me on Discord, I’ll probably see it.</p>
+          <a class="btn" href="https://discord.com/users/998734989279633438" target="_blank">Message Limpan</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer>Made by Limpan <span style="margin-left:8px">😎</span></footer>
+  </div>
+
+  <script>
+    (function(){
+      const confetti = document.querySelectorAll('.confetti i');
+      confetti.forEach((c,i)=>{
+        const delay = (Math.random()*3).toFixed(2);
+        c.style.top = -(Math.random()*10+2) + '%';
+        c.style.left = (Math.random()*95)+'%';
+        c.style.animationDelay = delay+'s';
+        c.style.animationDuration = (3 + Math.random()*2).toFixed(2)+'s';
+        c.style.transform = 'rotate('+ (Math.random()*360) +'deg)';
+      })
+    })();
+
+    const goodLuckBtn = document.getElementById('goodLuckBtn');
+    const luckCounter = document.getElementById('luckCounter');
+    let clickCount = 0;
+
+    goodLuckBtn.addEventListener('click', () => {
+      clickCount++;
+      luckCounter.textContent = `Good Luck Count: ${clickCount}`;
+      goodLuckBtn.style.transform = 'scale(1.1)';
+      setTimeout(() => { goodLuckBtn.style.transform = 'scale(1)'; }, 200);
+    });
+  </script>
+</body>
+</html>
